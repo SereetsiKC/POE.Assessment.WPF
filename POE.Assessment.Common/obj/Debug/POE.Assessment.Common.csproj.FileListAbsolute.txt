@@ -1,0 +1,6 @@
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Common\bin\Debug\POE.Assessment.Common.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Common\bin\Debug\POE.Assessment.Common.pdb
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Common\obj\Debug\POE.Assessment.Common.csproj.CoreCompileInputs.cache
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Common\obj\Debug\POE.Assessment.Common.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Common\obj\Debug\POE.Assessment.Common.pdb
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Common\obj\Debug\POE.Assessment.Common.csproj.AssemblyReference.cache

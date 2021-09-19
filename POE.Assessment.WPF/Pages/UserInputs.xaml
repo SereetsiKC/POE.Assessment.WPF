@@ -1,0 +1,182 @@
+﻿<Page x:Class="POE.Assessment.WPF.Pages.UserInputs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:POE.Assessment.WPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="786.139"
+      Title="UserInputs">
+
+    <StackPanel>
+        <StackPanel.Children>
+            <Border x:Name="Border1" Style="{StaticResource BorderStyles}" Height="200">
+                <Grid Margin="1,1,1,1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="250"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+
+                    <!--Labels-->
+                    <TextBlock Style="{StaticResource TextBlockHeaderStyle }" Grid.Row="0" Grid.Column="0" Text="Student Information"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Name"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="1" Grid.Column="0" Text=":"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Surname"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="2" Grid.Column="0" Text=":"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="0" Text="Student Numbe"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="3" Grid.Column="0" Text=":"/>
+
+                    <!--textboxes-->
+                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.StudentNumber,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" x:Name="txtName">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1"  x:Name="txtSurname">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.Surname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="1" x:Name="txtStudentNumber">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </Grid>
+            </Border>
+            <Border x:Name="Border2" Style="{StaticResource BorderStyles}" Height="350">
+                <Grid Margin="1,1,1,1" Height="300">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="250"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--Labels-->
+                    <TextBlock Style="{StaticResource TextBlockHeaderStyle }" Grid.Row="0" Grid.Column="0" Text="Module Information"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Code"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="1" Grid.Column="0" Text=":"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Name"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="2" Grid.Column="0" Text=":"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="0" Text="Namber Of Credits"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="3" Grid.Column="0" Text=":"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="0" Text="Class Hours Per Week"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="4" Grid.Column="0" Text=":"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="5" Grid.Column="0" Text="Hours Of Self Study"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="5" Grid.Column="0" Text=":"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="6" Grid.Column="0" Text="Study Date"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="6" Grid.Column="0" Text=":"/>
+
+                    <!--textboxes-->
+                    <ComboBox Style="{StaticResource ComboBoxStyles}" Grid.Row="1" Grid.Column="1" x:Name="txtCode"
+                                ItemsSource="{Binding Modules,Mode=OneWay}"
+                                DisplayMemberPath="Code"
+                                SelectedValuePath="Id" SelectedValue="{Binding Module.CodeId,Mode=TwoWay}">
+                        <ComboBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </ComboBox.Resources>
+                    </ComboBox>
+                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Module.Name,Mode=TwoWay}" Grid.Row="2" Grid.Column="1" x:Name="txtModuleName">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Module.NumberOfCredits,Mode=TwoWay}" PreviewTextInput="NumberValidationTextBox" Grid.Row="3" Grid.Column="1" x:Name="txtNumberOfCredits">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox Style="{StaticResource TextBoxStyles}"  Text="{Binding Module.ClassHoursPerWeek,Mode=TwoWay}" PreviewTextInput="NumberValidationTextBox" Grid.Row="4" Grid.Column="1" x:Name="txtClassHoursPerWeek">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <TextBox Style="{StaticResource TextBoxStyles}"  Text="{Binding Module.HoursOfSelfStudy,Mode=TwoWay}" PreviewTextInput="NumberValidationTextBox" Grid.Row="5" Grid.Column="1" x:Name="txHoursOfSelfStudy">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <DatePicker Style="{StaticResource DatePickerStyles}"  Text="{Binding Module.StudyDate,Mode=TwoWay}" Grid.Row="6" Grid.Column="1" x:Name="txtStudyDate">
+                        <DatePicker.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                    <Button Style="{StaticResource ButtonStyles}" Command="{Binding Module.SaveCommand,Mode=OneWay}" Grid.Row="7" Grid.Column="1" x:Name="btnSaveModule" Content="Add Module"/>
+                </Grid>
+            </Border>
+
+            <Border x:Name="Border3" Style="{StaticResource BorderStyles}" Height="220">
+                <Grid Margin="1,1,1,1" Height="180">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="250"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Style="{StaticResource TextBlockHeaderStyle }" Grid.Row="0" Grid.Column="0" Text="Semester Information"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Number Of Weeks"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="1" Grid.Column="0" Text=":"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Start Date"/>
+                    <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="2" Grid.Column="0" Text=":"/>
+
+                    <TextBox Style="{StaticResource TextBoxStyles}" PreviewTextInput="NumberValidationTextBox" Text="{Binding Semester.NumberOfWeeks,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" x:Name="txtNumberOfWeeks">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <DatePicker Style="{StaticResource DatePickerStyles}"  Text="{Binding Semester.StartDate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" x:Name="txtStartDate">
+                        <DatePicker.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </DatePicker.Resources>
+                    </DatePicker>
+                    <Button Style="{StaticResource ButtonStyles}" Command="{Binding SaveCommand,Mode=OneWay}" Grid.Row="3" Grid.Column="1" x:Name="btnSaveinformation" Content="Save All"/>
+                    <Button Style="{StaticResource ViewMarksButtonStyles}" Click="ViewResults" Grid.Row="4" Grid.Column="1" x:Name="btnViewResults" Content="ViewResults"/>
+                </Grid>
+
+            </Border>
+        </StackPanel.Children>
+    </StackPanel>
+</Page>

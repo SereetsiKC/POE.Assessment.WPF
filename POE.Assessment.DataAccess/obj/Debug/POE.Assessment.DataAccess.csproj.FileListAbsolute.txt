@@ -1,0 +1,9 @@
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.DataAccess.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.DataAccess.pdb
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.Common.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.Common.pdb
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\obj\Debug\POE.Assessment.DataAccess.csproj.AssemblyReference.cache
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\obj\Debug\POE.Assessment.DataAccess.csproj.CoreCompileInputs.cache
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\obj\Debug\POE.Assessment.DataAccess.csproj.CopyComplete
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\obj\Debug\POE.Assessment.DataAccess.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\obj\Debug\POE.Assessment.DataAccess.pdb

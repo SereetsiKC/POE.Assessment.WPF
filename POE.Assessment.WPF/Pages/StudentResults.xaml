@@ -1,0 +1,117 @@
+﻿<Page x:Class="POE.Assessment.WPF.Pages.StudentResults"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:POE.Assessment.WPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="1500"
+      Title="StudentResults">
+
+    <StackPanel Orientation="Horizontal">
+        <StackPanel.Children>
+            <StackPanel Orientation="Vertical" Width="750">
+                <StackPanel.Children>
+                    <Border Style="{StaticResource BorderDisplayStyles}" Height="200" Width="690" HorizontalAlignment="Left">
+                        <Grid Margin="1,1,1,1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                            </Grid.RowDefinitions>
+
+                            <!--Labels-->
+                            <TextBlock Style="{StaticResource TextBlockHeaderStyle }" Grid.Row="0" Grid.Column="0" Text="Student Information"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Name"/>
+                            <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="1" Grid.Column="0" Text=":"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Surname"/>
+                            <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="2" Grid.Column="0" Text=":"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="0" Text="Student Numbe"/>
+                            <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="3" Grid.Column="0" Text=":"/>
+
+                            <!--textboxes-->
+                            <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.StudentNumber,Mode=OneWay}" Grid.Row="1" Grid.Column="1">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.Name,Mode=OneWay}" Grid.Row="2" Grid.Column="1">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.Surname,Mode=OneWay}" Grid.Row="3" Grid.Column="1">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource BorderDisplayStyles}" Height="200" Width="690" HorizontalAlignment="Left">
+                        <Grid Margin="1,1,1,1" Height="180">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="2*" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Style="{StaticResource TextBlockHeaderStyle }" Grid.Row="0" Grid.Column="0" Text="Semester Information"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Number Of Weeks"/>
+                            <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="1" Grid.Column="0" Text=":"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Start Date"/>
+                            <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="2" Grid.Column="0" Text=":"/>
+
+                            <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Semester.NumberOfWeeks,Mode=OneWay}" Grid.Row="1" Grid.Column="1">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <DatePicker Style="{StaticResource DatePickerStyles}"  Text="{Binding Semester.StartDate,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1">
+                                <DatePicker.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+                            <Button  HorizontalAlignment="Center" VerticalAlignment="Center" Click="GoBack" Grid.Row="3" Grid.Column="0" x:Name="btnBack" Content="Go Back"/>
+                        </Grid>
+                    </Border>
+                </StackPanel.Children>
+            </StackPanel>
+            <Border Style="{StaticResource BorderDisplayStyles}" Width="690" Height="420" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <DataGrid x:Name="ResultsGrid" Background="#FF3EC3EA" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" CanUserAddRows="False" CanUserSortColumns="True" ItemsSource="{Binding ModulesColletion}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Module Code" Binding="{Binding Code}" />
+                        <DataGridTextColumn Header="Module Name" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="Number Of Credits" Binding="{Binding NumberOfCredits}" />
+                        <DataGridTextColumn Header="Class Hours Per Week" Binding="{Binding ClassHoursPerWeek}" />
+                        <DataGridTextColumn Header="Self Study Hours Per Week" Binding="{Binding SelfStudyHoursPerWeek}" />
+                        <DataGridTextColumn Header="Hours Spent on Self Study" Binding="{Binding HoursOfSelfStudy}" />
+                        <DataGridTextColumn Header="Study Date" Binding="{Binding StudyDate}" />
+                        <DataGridTextColumn Header="Remaining Self Study Hours" Binding="{Binding RemainingSelfStudyHours}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+
+        </StackPanel.Children>
+    </StackPanel>
+    
+</Page>
