@@ -14,15 +14,15 @@ namespace POE.Assessment.WPF.Pages
     {
         private UserInputsViewModel _viewModel;
         private MainWindow _mainWindow;
-        public UserInputs()
+        public UserInputs(UserInputsViewModel userInputs)
         {
             InitializeComponent();
-            _viewModel = new UserInputsViewModel(new StudentDataProvider());
+            _viewModel = userInputs;
             DataContext = _viewModel;
             Loaded += UserInputs_Loaded;
         }
 
-        public UserInputs(MainWindow mainWindow) : this()
+        public UserInputs(MainWindow mainWindow, UserInputsViewModel userInputs) : this(userInputs)
         {
             _mainWindow = mainWindow;
         }
@@ -30,7 +30,7 @@ namespace POE.Assessment.WPF.Pages
 
         private void UserInputs_Loaded(object sender, RoutedEventArgs e)
         {
-            _viewModel.Load();
+            _viewModel.LoadExisting();
         }
 
 

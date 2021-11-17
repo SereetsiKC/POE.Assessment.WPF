@@ -17,6 +17,18 @@ namespace POE.Assessment.ViewModel
         }
         public DelegateCommand SaveCommand { get; }
         #region StudentInformation
+        public int Id
+        {
+            get => studentInformation.Id;
+            set
+            {
+                if (studentInformation.Id != value)
+                {
+                    studentInformation.Id = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
         public string StudentNumber
         {
             get => studentInformation.StudentNumber;
@@ -56,7 +68,7 @@ namespace POE.Assessment.ViewModel
             }
         }
 
-        public bool CanSave => !string.IsNullOrEmpty(StudentNumber) && !string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Surname);
+        public bool CanSave => true;
         #endregion StudentInformation
         public void Save()
         {

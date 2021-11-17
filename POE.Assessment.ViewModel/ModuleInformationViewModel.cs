@@ -22,6 +22,19 @@ namespace POE.Assessment.ViewModel
 
         public DelegateCommand SaveCommand { get; }
 
+        public int Id
+        {
+            get => moduleInformation.Id;
+            set
+            {
+                if (moduleInformation.Id != value)
+                {
+                    moduleInformation.Id = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         public int CodeId
         {
             get => moduleInformation.CodeId;
@@ -140,9 +153,9 @@ namespace POE.Assessment.ViewModel
         }
         public void Save()
         {
-            var test1 = studentDataProvider.LoadModuleInfo();
-            var test = test1.Any(x => x.CodeId == CodeId);
-            if (!test)
+            var moduleInfor = studentDataProvider.LoadModuleInfo();
+            var exists = moduleInfor.Any(x => x.CodeId == CodeId);
+            if (!exists)
             {
                 Code = studentDataProvider.LoadModules().FirstOrDefault(x => x.Id == moduleInformation.CodeId).Name;
                 studentDataProvider.AddModuleInformation(moduleInformation);

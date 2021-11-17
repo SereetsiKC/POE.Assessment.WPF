@@ -17,7 +17,18 @@ namespace POE.Assessment.ViewModel
             SaveCommand = new DelegateCommand(Save, () => CanSave);
         }
         public DelegateCommand SaveCommand { get; }
-
+        public int Id
+        {
+            get => semesterInformation.Id;
+            set
+            {
+                if (semesterInformation.Id != value)
+                {
+                    semesterInformation.Id = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
         public int NumberOfWeeks
         {
             get => semesterInformation.NumberOfWeeks;

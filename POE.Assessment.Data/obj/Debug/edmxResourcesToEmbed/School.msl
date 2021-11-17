@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="POEAssessmentDBModelStoreContainer" CdmEntityContainer="POEAssessmentDBEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="POEAssessmentDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModuleInformations">
+      <EntityTypeMapping TypeName="POEAssessmentDBModel.ModuleInformation">
+        <MappingFragment StoreEntitySet="ModuleInformation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentInformationId" ColumnName="StudentInformationId" />
+          <ScalarProperty Name="CodeId" ColumnName="CodeId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NumberOfCredits" ColumnName="NumberOfCredits" />
+          <ScalarProperty Name="ClassHoursPerWeek" ColumnName="ClassHoursPerWeek" />
+          <ScalarProperty Name="HoursOfSelfStudy" ColumnName="HoursOfSelfStudy" />
+          <ScalarProperty Name="SelfStudyHoursPerWeek" ColumnName="SelfStudyHoursPerWeek" />
+          <ScalarProperty Name="StudyDate" ColumnName="StudyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="POEAssessmentDBModel.Module">
+        <MappingFragment StoreEntitySet="Modules">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SemesterInformations">
+      <EntityTypeMapping TypeName="POEAssessmentDBModel.SemesterInformation">
+        <MappingFragment StoreEntitySet="SemesterInformation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumberOfWeeks" ColumnName="NumberOfWeeks" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentInformations">
+      <EntityTypeMapping TypeName="POEAssessmentDBModel.StudentInformation">
+        <MappingFragment StoreEntitySet="StudentInformation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentNumber" ColumnName="StudentNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="SemesterId" ColumnName="SemesterId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

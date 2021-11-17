@@ -46,6 +46,7 @@
     <Compile Include="SemesterInformationViewModel.cs" />
     <Compile Include="StudentInformationViewModel.cs" />
     <Compile Include="UserInputsViewModel.cs" />
+    <Compile Include="UserViewModel.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,0 +1,24 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [school] (Schema)
+       [school].[Modules] (Table)
+       [school].[SemesterInformation] (Table)
+       [school].[ModuleInformation] (Table)
+       [school].[StudentInformation] (Table)
+       [dbo].[Users] (Table)
+       [school].[FK_ModuleInformation_Module] (Foreign Key)
+       [school].[FK_ModuleInformation_StudentInformation] (Foreign Key)
+       [school].[FK_StudentInformation_SemesterInformation] (Foreign Key)
+       [school].[FK_StudentInformation_Users] (Foreign Key)
+
+** Supporting actions

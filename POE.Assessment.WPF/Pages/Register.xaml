@@ -1,0 +1,66 @@
+﻿<Page x:Class="POE.Assessment.WPF.Pages.Register"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:POE.Assessment.WPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Register">
+    <Border x:Name="Border1" Style="{StaticResource BorderStyles}" Height="250">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="250"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource TextBlockHeaderStyle }" Grid.Row="0" Grid.Column="0" Text="User Registration"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="0" Text="Name"/>
+            <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="1" Grid.Column="0" Text=":"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="0" Text="Surname"/>
+            <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="2" Grid.Column="0" Text=":"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="0" Text="Username"/>
+            <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="3" Grid.Column="0" Text=":"/>
+            <TextBlock Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="0" Text="Password"/>
+            <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="4" Grid.Column="0" Text=":"/>
+
+            <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding User.Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" x:Name="txtName">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding User.Surname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" x:Name="txtSurname">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding User.Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="1" x:Name="txtUsername">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding User.Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" Grid.Column="1" x:Name="txtPassword">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button Style="{StaticResource ButtonStyles}" Click="RegisterNewUser" Grid.Row="7" Grid.Column="1" x:Name="btnSaveModule" Content="Register"/>
+        </Grid>
+    </Border>
+</Page>

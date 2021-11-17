@@ -54,6 +54,13 @@
             <Setter Property="Height" Value="30"/>
             <Setter Property="SelectedDateFormat" Value="Long"/>
         </Style>
+        <Style x:Key="PasswordBoxStyles" TargetType="{x:Type PasswordBox}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="Margin" Value="4,1,1,1"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
         <!--TextBox Styles-->
 
         <!--Button Styles-->
@@ -61,6 +68,13 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="4,1,1,1"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style x:Key="ButtonStylesWidth" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="150"/>
             <Setter Property="Margin" Value="4,1,1,1"/>
             <Setter Property="Height" Value="30"/>
         </Style>

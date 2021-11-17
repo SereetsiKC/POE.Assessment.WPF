@@ -21,6 +21,7 @@
                         <RowDefinition Height="2*" />
                         <RowDefinition Height="2*" />
                         <RowDefinition Height="2*" />
+                        <RowDefinition Height="2*" />
                     </Grid.RowDefinitions>
 
                     <!--Labels-->
@@ -33,27 +34,28 @@
                     <TextBlock Style="{StaticResource TextBlockColonStyle}" Grid.Row="3" Grid.Column="0" Text=":"/>
 
                     <!--textboxes-->
-                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.StudentNumber,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" x:Name="txtName">
+                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.StudentNumber,Mode=TwoWay}" Grid.Row="1" Grid.Column="1" x:Name="txtName">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="3"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1"  x:Name="txtSurname">
+                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.Name,Mode=TwoWay}" Grid.Row="2" Grid.Column="1"  x:Name="txtSurname">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="3"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
-                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.Surname,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="1" x:Name="txtStudentNumber">
+                    <TextBox Style="{StaticResource TextBoxStyles}" Text="{Binding Student.Surname,Mode=TwoWay}" Grid.Row="3" Grid.Column="1" x:Name="txtStudentNumber">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="3"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
+                    <Button Style="{StaticResource ButtonStylesWidth}" Command="{Binding Student.SaveCommand,Mode=OneWay}" Grid.Row="7" Grid.Column="1" x:Name="btnSaveStudentInformation" Content="Save Student Information"/>
                 </Grid>
             </Border>
             <Border x:Name="Border2" Style="{StaticResource BorderStyles}" Height="350">

@@ -12,6 +12,7 @@ namespace POE.Assessment.ViewModel
         private ModuleInformationViewModel _module;
         private StudentInformationViewModel _student;
         private SemesterInformationViewModel _semester;
+        private UserViewModel _user;
         public UserInputsViewModel(IStudentDataProvider studentDataProvider)
         {
             Modules = new ObservableCollection<Modules>();
@@ -39,6 +40,19 @@ namespace POE.Assessment.ViewModel
                 }
             }
         }
+        public UserViewModel User
+        {
+            get => _user;
+            set
+            {
+                if (_user != value)
+                {
+                    _user = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         public StudentInformationViewModel Student
         {
             get => _student;
@@ -66,15 +80,15 @@ namespace POE.Assessment.ViewModel
 
         public void Save()
         {
-            Student.Save();
             Semester.Save();
         }
 
-        public virtual void Load()
+        public virtual void LoadExisting()
         {
+            User = new UserViewModel(studentDataProvider.LoadUserInfo(), studentDataProvider);
             Module = new ModuleInformationViewModel(new ModuleInformation(), studentDataProvider);
-            Student = new StudentInformationViewModel(new StudentInformation(), studentDataProvider);
-            Semester = new SemesterInformationViewModel(new SemesterInformation(), studentDataProvider);
+            Student = new StudentInformationViewModel(studentDataProvider.LoadStudentInfo(), studentDataProvider);
+            Semester = new SemesterInformationViewModel(studentDataProvider.LoadSemesterInfo(), studentDataProvider);
 
             var modules = studentDataProvider.LoadModules();
             Modules.Clear();
@@ -82,13 +96,38 @@ namespace POE.Assessment.ViewModel
             {
                 Modules.Add(module);
             }
+
+            var modulesCollection = studentDataProvider.LoadModuleInfo();
+            ModulesColletion.Clear();
+            foreach (var module in modulesCollection)
+            {
+                var newModuleViewModel = new ModuleInformationViewModel(new ModuleInformation(module), studentDataProvider);
+                ModulesColletion.Add(newModuleViewModel);
+            }
+        }
+
+
+        public virtual void Load()
+        {
+            User = new UserViewModel(new UserInformation(), studentDataProvider);
+            Module = new ModuleInformationViewModel(new ModuleInformation(), studentDataProvider);
+            Student = new StudentInformationViewModel(new StudentInformation(), studentDataProvider);
+            Semester = new SemesterInformationViewModel(new SemesterInformation(), studentDataProvider);
+
+            //var modules = studentDataProvider.LoadModules();
+            //Modules.Clear();
+            //foreach (var module in modules)
+            //{
+            //    Modules.Add(module);
+            //}
         }
 
         public void LoadResults()
         {
+            User = new UserViewModel(studentDataProvider.LoadUserInfo(), studentDataProvider);
             Module = new ModuleInformationViewModel(new ModuleInformation(), studentDataProvider);
             Student = new StudentInformationViewModel(studentDataProvider.LoadStudentInfo(), studentDataProvider);
-            Semester = new SemesterInformationViewModel(studentDataProvider.LoadSemesternfo(), studentDataProvider);
+            Semester = new SemesterInformationViewModel(studentDataProvider.LoadSemesterInfo(), studentDataProvider);
 
             var modulesCollection = studentDataProvider.LoadModuleInfo();
             ModulesColletion.Clear();
@@ -105,6 +144,11 @@ namespace POE.Assessment.ViewModel
             {
                 Modules.Add(module);
             }
+        }
+
+        public bool Login()
+        {
+            return _user.Login();
         }
     }
 }

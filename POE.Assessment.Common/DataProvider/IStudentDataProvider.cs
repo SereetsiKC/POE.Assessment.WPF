@@ -6,14 +6,17 @@ namespace POE.Assessment.Common.DataProvider
 {
     public interface IStudentDataProvider
     {
+        void AddUserInformation(Common.Models.UserInformation userInformation);
         void AddModuleInformation(ModuleInformation moduleInformation);
-        void AddStudentInformation(StudentInformation testInformation);
+        void AddStudentInformation(StudentInformation studentInformation);
         void AddSemesterInformation(SemesterInformation semesterInformation);
 
-        SemesterInformation LoadSemesternfo();
+        SemesterInformation LoadSemesterInfo();
         StudentInformation LoadStudentInfo();
         IEnumerable<COPY.ModuleInformation> LoadModuleInfo();
-        IEnumerable<Modules> LoadModules();
+        List<Modules> LoadModules();
+        Common.Models.UserInformation LoadUserInfo();
+        bool Login(string Username, string Password);
 
     }
 }

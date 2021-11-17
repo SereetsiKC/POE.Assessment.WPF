@@ -32,7 +32,7 @@ namespace POE.Assessment.WPF.Pages
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            UserInputs page = new UserInputs(_mainWindow);
+            UserInputs page = new UserInputs(_mainWindow, _viewModel);
             _mainWindow.Content = page;
         }
     }

@@ -47,8 +47,14 @@
     <Compile Include="Models\StudentInformation.cs" />
     <Compile Include="Models\ModuleInformation.cs" />
     <Compile Include="Models\SemesterInformation.cs" />
+    <Compile Include="Models\UserInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\POE.Assessment.Data\POE.Assessment.Data.csproj">
+      <Project>{4E3ABDF2-107D-4FDA-977F-FBBE8FA70B5D}</Project>
+      <Name>POE.Assessment.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

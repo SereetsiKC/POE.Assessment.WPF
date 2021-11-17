@@ -1,7 +1,15 @@
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.DataAccess.dll.config
 D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.DataAccess.dll
 D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.DataAccess.pdb
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\EntityFramework.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.Common.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.Data.dll
 D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.Common.pdb
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.Data.pdb
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\POE.Assessment.Data.dll.config
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\EntityFramework.xml
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
 D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\obj\Debug\POE.Assessment.DataAccess.csproj.AssemblyReference.cache
 D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\obj\Debug\POE.Assessment.DataAccess.csproj.CoreCompileInputs.cache
 D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataAccess\obj\Debug\POE.Assessment.DataAccess.csproj.CopyComplete

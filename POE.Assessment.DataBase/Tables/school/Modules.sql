@@ -1,0 +1,6 @@
+﻿CREATE TABLE [school].[Modules]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
+    [Code] VARCHAR(20) NOT NULL, 
+    [Name] NVARCHAR(100) NOT NULL
+)

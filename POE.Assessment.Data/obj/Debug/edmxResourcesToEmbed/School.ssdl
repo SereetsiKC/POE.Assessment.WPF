@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="POEAssessmentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ModuleInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentInformationId" Type="int" Nullable="false" />
+    <Property Name="CodeId" Type="int" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumberOfCredits" Type="int" Nullable="false" />
+    <Property Name="ClassHoursPerWeek" Type="int" Nullable="false" />
+    <Property Name="HoursOfSelfStudy" Type="int" Nullable="false" />
+    <Property Name="SelfStudyHoursPerWeek" Type="decimal" Precision="18" Scale="10" />
+    <Property Name="StudyDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Modules">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SemesterInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumberOfWeeks" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StudentInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" />
+    <Property Name="SemesterId" Type="int" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ModuleInformation_Module">
+    <End Role="Modules" Type="Self.Modules" Multiplicity="1" />
+    <End Role="ModuleInformation" Type="Self.ModuleInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modules">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleInformation">
+        <PropertyRef Name="CodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModuleInformation_StudentInformation">
+    <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+    <End Role="ModuleInformation" Type="Self.ModuleInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentInformation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleInformation">
+        <PropertyRef Name="StudentInformationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentInformation_SemesterInformation">
+    <End Role="SemesterInformation" Type="Self.SemesterInformation" Multiplicity="0..1" />
+    <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemesterInformation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentInformation">
+        <PropertyRef Name="SemesterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentInformation_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentInformation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="POEAssessmentDBModelStoreContainer">
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModuleInformation" EntityType="Self.ModuleInformation" Schema="school" store:Type="Tables" />
+    <EntitySet Name="Modules" EntityType="Self.Modules" Schema="school" store:Type="Tables" />
+    <EntitySet Name="SemesterInformation" EntityType="Self.SemesterInformation" Schema="school" store:Type="Tables" />
+    <EntitySet Name="StudentInformation" EntityType="Self.StudentInformation" Schema="school" store:Type="Tables" />
+    <AssociationSet Name="FK_ModuleInformation_Module" Association="Self.FK_ModuleInformation_Module">
+      <End Role="Modules" EntitySet="Modules" />
+      <End Role="ModuleInformation" EntitySet="ModuleInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModuleInformation_StudentInformation" Association="Self.FK_ModuleInformation_StudentInformation">
+      <End Role="StudentInformation" EntitySet="StudentInformation" />
+      <End Role="ModuleInformation" EntitySet="ModuleInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentInformation_SemesterInformation" Association="Self.FK_StudentInformation_SemesterInformation">
+      <End Role="SemesterInformation" EntitySet="SemesterInformation" />
+      <End Role="StudentInformation" EntitySet="StudentInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentInformation_Users" Association="Self.FK_StudentInformation_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StudentInformation" EntitySet="StudentInformation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,34 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [school].[ModuleInformation]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [school].[ModuleInformation].[UserId] is being dropped, data loss could occur.
+       The column [school].[ModuleInformation].[StudentInformationId] on table [school].[ModuleInformation] must be added, but
+         the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not
+         work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable
+         the generation of smart-defaults as a deployment option.
+
+** User actions
+     Drop
+       [school].[FK_ModuleInformation_Users] (Foreign Key)
+     Table rebuild
+       [school].[ModuleInformation] (Table)
+     Create
+       [school].[StudentInformation] (Table)
+       [school].[FK_ModuleInformation_StudentInformation] (Foreign Key)
+       [school].[FK_StudentInformation_SemesterInformation] (Foreign Key)
+       [school].[FK_StudentInformation_Users] (Foreign Key)
+
+** Supporting actions
+     Drop
+       [school].[FK_ModuleInformation_Module] (Foreign Key)
+     Create
+       [school].[FK_ModuleInformation_Module] (Foreign Key)
+
+The column [school].[ModuleInformation].[UserId] is being dropped, data loss could occur.
+The column [school].[ModuleInformation].[StudentInformationId] on table [school].[ModuleInformation] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+

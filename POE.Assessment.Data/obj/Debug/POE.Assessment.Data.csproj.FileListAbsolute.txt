@@ -1,0 +1,12 @@
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\bin\Debug\POE.Assessment.Data.dll.config
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\bin\Debug\POE.Assessment.Data.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\bin\Debug\POE.Assessment.Data.pdb
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\bin\Debug\EntityFramework.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\bin\Debug\EntityFramework.xml
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\obj\Debug\POE.Assessment.Data.csproj.AssemblyReference.cache
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\obj\Debug\POE.Assessment.Data.csproj.CoreCompileInputs.cache
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\obj\Debug\POE.Assessment.Data.csproj.CopyComplete
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\obj\Debug\POE.Assessment.Data.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.Data\obj\Debug\POE.Assessment.Data.pdb

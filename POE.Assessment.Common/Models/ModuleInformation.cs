@@ -10,6 +10,7 @@ namespace POE.Assessment.Common.Models
         }
         public ModuleInformation(Copy.ModuleInformation module)
         {
+            Id = module.Id;
             CodeId = module.CodeId;
             Name = module.Name;
             NumberOfCredits = module.NumberOfCredits;
@@ -18,7 +19,10 @@ namespace POE.Assessment.Common.Models
             SelfStudyHoursPerWeek = module.SelfStudyHoursPerWeek;
             StudyDate = module.StudyDate;
             Code = module.Code;
+            StudentInformationId = module.StudentInformationId;
         }
+        public int Id { get; set; }
+        public int StudentInformationId { get; set; }
         public int CodeId { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }

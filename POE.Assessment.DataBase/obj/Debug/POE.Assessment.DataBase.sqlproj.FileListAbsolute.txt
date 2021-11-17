@@ -1,0 +1,9 @@
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataBase\bin\Debug\POE.Assessment.DataBase.dacpac
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataBase\bin\Debug\POE.Assessment.DataBase.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataBase\bin\Debug\POE.Assessment.DataBase.pdb
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataBase\obj\Debug\Model.xml
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataBase\obj\Debug\refactor.xml
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataBase\obj\Debug\postdeploy.sql
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataBase\obj\Debug\predeploy.sql
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataBase\obj\Debug\POE.Assessment.DataBase.dll
+D:\C# Applications\POE.Assessment.WPF\POE.Assessment.DataBase\obj\Debug\POE.Assessment.DataBase.pdb

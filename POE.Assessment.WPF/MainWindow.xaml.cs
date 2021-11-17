@@ -16,8 +16,8 @@ namespace POE.Assessment.WPF
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            UserInputs userInputs = new UserInputs(this);
-            this.Content = userInputs;
+            Login login = new Login(this);
+            this.Content = login;
         }
     }
 }

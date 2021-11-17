@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="POEAssessmentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="StudentInformations" Relationship="Self.FK_StudentInformation_Users" FromRole="Users" ToRole="StudentInformation" />
+  </EntityType>
+  <EntityType Name="ModuleInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentInformationId" Type="Int32" Nullable="false" />
+    <Property Name="CodeId" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfCredits" Type="Int32" Nullable="false" />
+    <Property Name="ClassHoursPerWeek" Type="Int32" Nullable="false" />
+    <Property Name="HoursOfSelfStudy" Type="Int32" Nullable="false" />
+    <Property Name="SelfStudyHoursPerWeek" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="StudyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Module" Relationship="Self.FK_ModuleInformation_Module" FromRole="ModuleInformation" ToRole="Modules" />
+    <NavigationProperty Name="StudentInformation" Relationship="Self.FK_ModuleInformation_StudentInformation" FromRole="ModuleInformation" ToRole="StudentInformation" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ModuleInformations" Relationship="Self.FK_ModuleInformation_Module" FromRole="Modules" ToRole="ModuleInformation" />
+  </EntityType>
+  <EntityType Name="SemesterInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumberOfWeeks" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="StudentInformations" Relationship="Self.FK_StudentInformation_SemesterInformation" FromRole="SemesterInformation" ToRole="StudentInformation" />
+  </EntityType>
+  <EntityType Name="StudentInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SemesterId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_StudentInformation_Users" FromRole="StudentInformation" ToRole="Users" />
+    <NavigationProperty Name="ModuleInformations" Relationship="Self.FK_ModuleInformation_StudentInformation" FromRole="StudentInformation" ToRole="ModuleInformation" />
+    <NavigationProperty Name="SemesterInformation" Relationship="Self.FK_StudentInformation_SemesterInformation" FromRole="StudentInformation" ToRole="SemesterInformation" />
+  </EntityType>
+  <Association Name="FK_StudentInformation_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentInformation">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModuleInformation_Module">
+    <End Role="Modules" Type="Self.Module" Multiplicity="1" />
+    <End Role="ModuleInformation" Type="Self.ModuleInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modules">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleInformation">
+        <PropertyRef Name="CodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModuleInformation_StudentInformation">
+    <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="1" />
+    <End Role="ModuleInformation" Type="Self.ModuleInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentInformation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleInformation">
+        <PropertyRef Name="StudentInformationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentInformation_SemesterInformation">
+    <End Role="SemesterInformation" Type="Self.SemesterInformation" Multiplicity="0..1" />
+    <End Role="StudentInformation" Type="Self.StudentInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemesterInformation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentInformation">
+        <PropertyRef Name="SemesterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="POEAssessmentDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="ModuleInformations" EntityType="Self.ModuleInformation" />
+    <EntitySet Name="Modules" EntityType="Self.Module" />
+    <EntitySet Name="SemesterInformations" EntityType="Self.SemesterInformation" />
+    <EntitySet Name="StudentInformations" EntityType="Self.StudentInformation" />
+    <AssociationSet Name="FK_StudentInformation_Users" Association="Self.FK_StudentInformation_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StudentInformation" EntitySet="StudentInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModuleInformation_Module" Association="Self.FK_ModuleInformation_Module">
+      <End Role="Modules" EntitySet="Modules" />
+      <End Role="ModuleInformation" EntitySet="ModuleInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModuleInformation_StudentInformation" Association="Self.FK_ModuleInformation_StudentInformation">
+      <End Role="StudentInformation" EntitySet="StudentInformations" />
+      <End Role="ModuleInformation" EntitySet="ModuleInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentInformation_SemesterInformation" Association="Self.FK_StudentInformation_SemesterInformation">
+      <End Role="SemesterInformation" EntitySet="SemesterInformations" />
+      <End Role="StudentInformation" EntitySet="StudentInformations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

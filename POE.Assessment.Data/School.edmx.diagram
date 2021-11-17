@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="71e11f46f1794d599dc8dfc1f7b65b48" Name="Diagram1">
+        <EntityTypeShape EntityType="POEAssessmentDBModel.User" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="POEAssessmentDBModel.ModuleInformation" Width="1.5" PointX="8.625" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POEAssessmentDBModel.Module" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POEAssessmentDBModel.SemesterInformation" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POEAssessmentDBModel.StudentInformation" Width="1.5" PointX="5.125" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="POEAssessmentDBModel.FK_StudentInformation_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="POEAssessmentDBModel.FK_ModuleInformation_Module" ManuallyRouted="false" />
+        <AssociationConnector Association="POEAssessmentDBModel.FK_ModuleInformation_StudentInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="POEAssessmentDBModel.FK_StudentInformation_SemesterInformation" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
